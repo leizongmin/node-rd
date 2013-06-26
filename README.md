@@ -1,3 +1,5 @@
+[![Build Status](https://secure.travis-ci.org/leizongmin/node-rd.png?branch=master)](http://travis-ci.org/leizongmin/node-rd)
+
 node-rd
 =======
 
@@ -14,7 +16,7 @@ rd.read('/tmp', function (err, files) {
 });
 
 // 同步列出目录下的所有文件
-var files = rd.read('/tmp');
+var files = rd.readSync('/tmp');
 
 // 异步遍历目录下的所有文件
 rd.each('/tmp', function (f, s, next) {
