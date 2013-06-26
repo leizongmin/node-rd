@@ -41,6 +41,7 @@ describe('the rd moudle', function () {
     });
   }
   TestStructs.prototype.test = function (f) {
+    if (/(\\|\/)NOFILE$/.test(f)) return;
     if (f in this.files) {
       this.files[f]++;
     } else {
