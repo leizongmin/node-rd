@@ -1,0 +1,21 @@
+{
+  "name":           "xss",
+  "main":           "./lib/index.js",
+  "version":        "0.0.1",
+  "description":    "Read all directory recursively",
+  "author":         "leizongmin <leizongmin@gmail.com> (http://ucdok.com)",
+  "repository": {
+    "type": "git",
+    "url":  "git://github.com/leizongmin/node-rd.git"
+  },
+  "engines": {
+    "node":         ">= 0.6.0"
+  },
+  "devDependencies": {
+    "mocha":        ">= 1.2",
+    "should":       "~1.2.2"
+  },
+  "scripts": {
+    "test":         "mocha -t 5000"
+  }
+}
