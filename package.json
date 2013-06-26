@@ -1,8 +1,8 @@
 {
-  "name":           "xss",
+  "name":           "rd",
   "main":           "./lib/index.js",
   "version":        "0.0.1",
-  "description":    "Read all directory recursively",
+  "description":    "Read all directory recursively 列出（遍历）目录下的所有文件，包括子目录",
   "author":         "leizongmin <leizongmin@gmail.com> (http://ucdok.com)",
   "repository": {
     "type": "git",
