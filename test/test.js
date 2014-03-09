@@ -527,4 +527,66 @@ describe('the rd moudle', function () {
     });
   });
 
+  // ---------------------------------------------------------------------------
+
+  it('#eachPattern', function (done) {
+    var pattern = /(eaaaa|abaa.txt)$/;
+    var structs = new TestStructs(STRUCTS_ALL.filter(function (f) {
+      return pattern.test('/' + f);
+    }));
+    me.eachPattern(DIR, pattern, function (f, s, next) {
+      structs.test(f);
+      next();
+    }, function (err) {
+      should.equal(err, null);
+      structs.end();
+      done();
+    });
+  });
+
+  it('#eachPattern - thread_num', function (done) {
+    var pattern = /(eaaaa|abaa.txt)$/;
+    var structs = new TestStructs(STRUCTS_ALL.filter(function (f) {
+      return pattern.test('/' + f);
+    }));
+    me.eachPattern(DIR, pattern, 1, function (f, s, next) {
+      structs.test(f);
+      next();
+    }, function (err) {
+      should.equal(err, null);
+      structs.end();
+      done();
+    });
+  });
+
+  it('#readPattern', function (done) {
+    var pattern = /(eaaaa|abaa.txt)$/;
+    var structs = new TestStructs(STRUCTS_ALL.filter(function (f) {
+      return pattern.test('/' + f);
+    }));
+    me.readPattern(DIR, pattern, function (err, files) {
+      should.equal(err, null);
+      files.forEach(function (f) {
+        structs.test(f);
+      });
+      structs.end();
+      done();
+    });
+  });
+
+  it('#readPattern - thread_num', function (done) {
+    var pattern = /(eaaaa|abaa.txt)$/;
+    var structs = new TestStructs(STRUCTS_ALL.filter(function (f) {
+      return pattern.test('/' + f);
+    }));
+    me.readPattern(DIR, pattern, 1, function (err, files) {
+      should.equal(err, null);
+      files.forEach(function (f) {
+        structs.test(f);
+      });
+      structs.end();
+      done();
+    });
+  });
+
 });
