@@ -175,52 +175,52 @@ describe('the rd moudle', function () {
 
   // ---------------------------------------------------------------------------
 
-  it('#eachFilePatternSync - 1', function (done) {
+  it('#eachFileFilterSync - 1', function (done) {
     var pattern = /a\.txt$/;
     var structs = new TestStructs(STRUCTS_FILE.filter(function (f) {
       return pattern.test('/' + f);
     }));
-    me.eachFilePatternSync(DIR, pattern, function (f, s) {
+    me.eachFileFilterSync(DIR, pattern, function (f, s) {
       structs.test(f);
     });
     structs.end();
     done();
   });
 
-  it('#eachFilePatternSync - 2', function (done) {
+  it('#eachFileFilterSync - 2', function (done) {
     var pattern = function (f) {
       return (f.substr(-4) === '.txt');
     }
     var structs = new TestStructs(STRUCTS_FILE.filter(function (f) {
       return pattern('/' + f);
     }));
-    me.eachFilePatternSync(DIR, pattern, function (f, s) {
+    me.eachFileFilterSync(DIR, pattern, function (f, s) {
       structs.test(f);
     });
     structs.end();
     done();
   });
 
-  it('#eachDirPatternSync - 1', function (done) {
+  it('#eachDirFilterSync - 1', function (done) {
     var pattern = /aaa$/;
     var structs = new TestStructs(STRUCTS_DIR.filter(function (f) {
       return pattern.test('/' + f);
     }));
-    me.eachDirPatternSync(DIR, pattern, function (f, s) {
+    me.eachDirFilterSync(DIR, pattern, function (f, s) {
       structs.test(f);
     });
     structs.end();
     done();
   });
 
-  it('#eachDirPatternSync - 2', function (done) {
+  it('#eachDirFilterSync - 2', function (done) {
     var pattern = function (f) {
       return (f.substr(-3) === 'aaa');
     }
     var structs = new TestStructs(STRUCTS_DIR.filter(function (f) {
       return pattern('/' + f);
     }));
-    me.eachDirPatternSync(DIR, pattern, function (f, s) {
+    me.eachDirFilterSync(DIR, pattern, function (f, s) {
       structs.test(f);
     });
     structs.end();
@@ -239,12 +239,12 @@ describe('the rd moudle', function () {
     done();
   });
 
-  it('#readFilePatternSync - 1', function (done) {
+  it('#readFileFilterSync - 1', function (done) {
     var pattern = /a\.txt$/;
     var structs = new TestStructs(STRUCTS_FILE.filter(function (f) {
       return pattern.test('/' + f);
     }));
-    var files = me.readFilePatternSync(DIR, pattern);
+    var files = me.readFileFilterSync(DIR, pattern);
     files.forEach(function (f) {
       structs.test(f);
     });
@@ -252,14 +252,14 @@ describe('the rd moudle', function () {
     done();
   });
 
-  it('#readFilePatternSync - 2', function (done) {
+  it('#readFileFilterSync - 2', function (done) {
     var pattern = function (f) {
       return (f.substr(-4) === '.txt');
     }
     var structs = new TestStructs(STRUCTS_FILE.filter(function (f) {
       return pattern('/' + f);
     }));
-    var files = me.readFilePatternSync(DIR, pattern);
+    var files = me.readFileFilterSync(DIR, pattern);
     files.forEach(function (f) {
       structs.test(f);
     });
@@ -277,12 +277,12 @@ describe('the rd moudle', function () {
     done();
   });
 
-  it('#readDirPatternSync - 1', function (done) {
+  it('#readDirFilterSync - 1', function (done) {
     var pattern = /aaa$/;
     var structs = new TestStructs(STRUCTS_DIR.filter(function (f) {
       return pattern.test('/' + f);
     }));
-    var files = me.readDirPatternSync(DIR, pattern);
+    var files = me.readDirFilterSync(DIR, pattern);
     files.forEach(function (f) {
       structs.test(f);
     });
@@ -290,14 +290,14 @@ describe('the rd moudle', function () {
     done();
   });
 
-  it('#readFilePatternSync - 2', function (done) {
+  it('#readFileFilterSync - 2', function (done) {
     var pattern = function (f) {
       return (f.substr(-3) === 'aaa');
     }
     var structs = new TestStructs(STRUCTS_DIR.filter(function (f) {
       return pattern('/' + f);
     }));
-    var files = me.readDirPatternSync(DIR, pattern);
+    var files = me.readDirFilterSync(DIR, pattern);
     files.forEach(function (f) {
       structs.test(f);
     });
@@ -355,12 +355,12 @@ describe('the rd moudle', function () {
     });
   });
 
-  it('#eachFilePattern', function (done) {
+  it('#eachFileFilter', function (done) {
     var pattern = /a\.txt$/;
     var structs = new TestStructs(STRUCTS_FILE.filter(function (f) {
       return pattern.test('/' + f);
     }));
-    me.eachFilePattern(DIR, pattern, function (f, s, next) {
+    me.eachFileFilter(DIR, pattern, function (f, s, next) {
       structs.test(f);
       next();
     }, function (err) {
@@ -370,12 +370,12 @@ describe('the rd moudle', function () {
     });
   });
 
-  it('#eachFilePattern - thread_num', function (done) {
+  it('#eachFileFilter - thread_num', function (done) {
     var pattern = /a\.txt$/;
     var structs = new TestStructs(STRUCTS_FILE.filter(function (f) {
       return pattern.test('/' + f);
     }));
-    me.eachFilePattern(DIR, pattern, 1, function (f, s, next) {
+    me.eachFileFilter(DIR, pattern, 1, function (f, s, next) {
       structs.test(f);
       next();
     }, function (err) {
@@ -385,12 +385,12 @@ describe('the rd moudle', function () {
     });
   });
 
-  it('#eachDirPattern', function (done) {
+  it('#eachDirFilter', function (done) {
     var pattern = /aaa$/;
     var structs = new TestStructs(STRUCTS_DIR.filter(function (f) {
       return pattern.test('/' + f);
     }));
-    me.eachDirPattern(DIR, pattern, function (f, s, next) {
+    me.eachDirFilter(DIR, pattern, function (f, s, next) {
       structs.test(f);
       next();
     }, function (err) {
@@ -400,14 +400,14 @@ describe('the rd moudle', function () {
     });
   });
 
-  it('#eachDirPattern - thread_num', function (done) {
+  it('#eachDirFilter - thread_num', function (done) {
     var pattern = function (f) {
       return (f.substr(-3) === 'aaa');
     }
     var structs = new TestStructs(STRUCTS_DIR.filter(function (f) {
       return pattern('/' + f);
     }));
-    me.eachDirPattern(DIR, pattern, 1, function (f, s, next) {
+    me.eachDirFilter(DIR, pattern, 1, function (f, s, next) {
       structs.test(f);
       next();
     }, function (err) {
@@ -465,12 +465,12 @@ describe('the rd moudle', function () {
     });
   });
 
-  it('#readFilePattern', function (done) {
+  it('#readFileFilter', function (done) {
     var pattern = /a\.txt$/;
     var structs = new TestStructs(STRUCTS_FILE.filter(function (f) {
       return pattern.test('/' + f);
     }));
-    me.readFilePattern(DIR, pattern, function (err, files) {
+    me.readFileFilter(DIR, pattern, function (err, files) {
       should.equal(err, null);
       files.forEach(function (f) {
         structs.test(f);
@@ -480,12 +480,12 @@ describe('the rd moudle', function () {
     });
   });
 
-  it('#readFilePattern - thread_num', function (done) {
+  it('#readFileFilter - thread_num', function (done) {
     var pattern = /a\.txt$/;
     var structs = new TestStructs(STRUCTS_FILE.filter(function (f) {
       return pattern.test('/' + f);
     }));
-    me.readFilePattern(DIR, pattern, 1, function (err, files) {
+    me.readFileFilter(DIR, pattern, 1, function (err, files) {
       should.equal(err, null);
       files.forEach(function (f) {
         structs.test(f);
@@ -495,12 +495,12 @@ describe('the rd moudle', function () {
     });
   });
 
-  it('#readDirPattern', function (done) {
+  it('#readDirFilter', function (done) {
     var pattern = /aaa$/;
     var structs = new TestStructs(STRUCTS_DIR.filter(function (f) {
       return pattern.test('/' + f);
     }));
-    me.readDirPattern(DIR, pattern, function (err, files) {
+    me.readDirFilter(DIR, pattern, function (err, files) {
       should.equal(err, null);
       files.forEach(function (f) {
         structs.test(f);
@@ -510,14 +510,14 @@ describe('the rd moudle', function () {
     });
   });
 
-  it('#readDirPattern - thread_num', function (done) {
+  it('#readDirFilter - thread_num', function (done) {
     var pattern = function (f) {
       return (f.substr(-3) === 'aaa');
     }
     var structs = new TestStructs(STRUCTS_DIR.filter(function (f) {
       return pattern('/' + f);
     }));
-    me.readDirPattern(DIR, pattern, 1, function (err, files) {
+    me.readDirFilter(DIR, pattern, 1, function (err, files) {
       should.equal(err, null);
       files.forEach(function (f) {
         structs.test(f);
@@ -529,12 +529,12 @@ describe('the rd moudle', function () {
 
   // ---------------------------------------------------------------------------
 
-  it('#eachPattern', function (done) {
+  it('#eachFilter', function (done) {
     var pattern = /(eaaaa|abaa.txt)$/;
     var structs = new TestStructs(STRUCTS_ALL.filter(function (f) {
       return pattern.test('/' + f);
     }));
-    me.eachPattern(DIR, pattern, function (f, s, next) {
+    me.eachFilter(DIR, pattern, function (f, s, next) {
       structs.test(f);
       next();
     }, function (err) {
@@ -544,12 +544,12 @@ describe('the rd moudle', function () {
     });
   });
 
-  it('#eachPattern - thread_num', function (done) {
+  it('#eachFilter - thread_num', function (done) {
     var pattern = /(eaaaa|abaa.txt)$/;
     var structs = new TestStructs(STRUCTS_ALL.filter(function (f) {
       return pattern.test('/' + f);
     }));
-    me.eachPattern(DIR, pattern, 1, function (f, s, next) {
+    me.eachFilter(DIR, pattern, 1, function (f, s, next) {
       structs.test(f);
       next();
     }, function (err) {
@@ -559,12 +559,12 @@ describe('the rd moudle', function () {
     });
   });
 
-  it('#readPattern', function (done) {
+  it('#readFilter', function (done) {
     var pattern = /(eaaaa|abaa.txt)$/;
     var structs = new TestStructs(STRUCTS_ALL.filter(function (f) {
       return pattern.test('/' + f);
     }));
-    me.readPattern(DIR, pattern, function (err, files) {
+    me.readFilter(DIR, pattern, function (err, files) {
       should.equal(err, null);
       files.forEach(function (f) {
         structs.test(f);
@@ -574,12 +574,12 @@ describe('the rd moudle', function () {
     });
   });
 
-  it('#readPattern - thread_num', function (done) {
+  it('#readFilter - thread_num', function (done) {
     var pattern = /(eaaaa|abaa.txt)$/;
     var structs = new TestStructs(STRUCTS_ALL.filter(function (f) {
       return pattern.test('/' + f);
     }));
-    me.readPattern(DIR, pattern, 1, function (err, files) {
+    me.readFilter(DIR, pattern, 1, function (err, files) {
       should.equal(err, null);
       files.forEach(function (f) {
         structs.test(f);
@@ -591,38 +591,38 @@ describe('the rd moudle', function () {
 
   // ---------------------------------------------------------------------------
 
-  it('#eachPatternSync - 1', function (done) {
+  it('#eachFilterSync - 1', function (done) {
     var pattern = /(eaaaa|abaa.txt)$/;
     var structs = new TestStructs(STRUCTS_ALL.filter(function (f) {
       return pattern.test('/' + f);
     }));
-    me.eachPatternSync(DIR, pattern, function (f, s) {
+    me.eachFilterSync(DIR, pattern, function (f, s) {
       structs.test(f);
     });
     structs.end();
     done();
   });
 
-  it('#eachPatternSync - 2', function (done) {
+  it('#eachFilterSync - 2', function (done) {
     var pattern = function (f) {
       return /(eaaaa|abaa.txt)$/.test(f);
     }
     var structs = new TestStructs(STRUCTS_ALL.filter(function (f) {
       return pattern('/' + f);
     }));
-    me.eachPatternSync(DIR, pattern, function (f, s) {
+    me.eachFilterSync(DIR, pattern, function (f, s) {
       structs.test(f);
     });
     structs.end();
     done();
   });
 
-  it('#readPatternSync - 1', function (done) {
+  it('#readFilterSync - 1', function (done) {
     var pattern = /(eaaaa|abaa.txt)$/;
     var structs = new TestStructs(STRUCTS_ALL.filter(function (f) {
       return pattern.test('/' + f);
     }));
-    var files = me.readPatternSync(DIR, pattern);
+    var files = me.readFilterSync(DIR, pattern);
     files.forEach(function (f) {
       structs.test(f);
     });
@@ -630,14 +630,14 @@ describe('the rd moudle', function () {
     done();
   });
 
-  it('#readPatternSync - 2', function (done) {
+  it('#readFilterSync - 2', function (done) {
     var pattern = function (f) {
       return /(eaaaa|abaa.txt)$/.test(f);
     }
     var structs = new TestStructs(STRUCTS_ALL.filter(function (f) {
       return pattern('/' + f);
     }));
-    var files = me.readPatternSync(DIR, pattern);
+    var files = me.readFilterSync(DIR, pattern);
     files.forEach(function (f) {
       structs.test(f);
     });

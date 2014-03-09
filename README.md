@@ -16,17 +16,17 @@ node-rd
 可用的API（详细用法可参考 `test/test.js` ）：
 
 + `read(dir, [threads], callback)`
-+ `readPattern(dir, pattern, [threads], callback)`
++ `readFilter(dir, pattern, [threads], callback)`
 + `readFile(dir, [threads], callback)`
-+ `readFilePattern(dir, pattern, [threads], callback)`
++ `readFileFilter(dir, pattern, [threads], callback)`
 + `readDir(dir, [threads], callback)`
-+ `readDirPattern(dir, pattern, [threads], callback)`
++ `readDirFilter(dir, pattern, [threads], callback)`
 + `each(dir, findOne, [threads], callback)`
-+ `eachPattern(dir, pattern, [threads], findOne, callback)`
++ `eachFilter(dir, pattern, [threads], findOne, callback)`
 + `eachFile(dir, [threads], findOne, callback)`
-+ `eachFilePattern(dir, pattern, [threads], findOne, callback)`
++ `eachFileFilter(dir, pattern, [threads], findOne, callback)`
 + `eachDir(dir, [threads], findOne, callback)`
-+ `eachDirPattern(dir, pattern, [threads], findOne, callback)`
++ `eachDirFilter(dir, pattern, [threads], findOne, callback)`
 
 说明：
 
