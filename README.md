@@ -5,6 +5,63 @@ node-rd
 
 列出（遍历）目录下的所有文件，包括子目录
 
+## API列表
+
+说明：
+
++ `read` 开头表示返回数组结果
++ `each` 开头表示没发现一个文件均调用回调函数
++ `Sync` 结尾表示是同步函数，其他表示异步函数
+
+可用的API（详细用法可参考 `test/test.js` ）：
+
++ `read(dir, callback)`
++ `readFile(dir, callback)`
++ `readFilePattern(dir, pattern, callback)`
++ `readDir(dir, callback)`
++ `readDirPattern(dir, pattern, callback)`
++ `each(dir, findOne, callback)`
++ `eachFile(dir, findOne, callback)`
++ `eachFilePattern(dir, pattern, findOne, callback)`
++ `eachDir(dir, findOne, callback)`
++ `eachDirPattern(dir, pattern, findOne, callback)`
+
+以上所有函数均提供同步版本，如 `readSync`, `eachSync`；相应的 `callback` 改为
+直接 `return` 返回值。
+
+`findOne` 回调函数格式：
+
+```JavaScript
+function findOne (filename, stats) {
+  // filename 是当前文件的完整路径
+  // stats 是使用 fs.Stats 对象
+}
+```
+
+`callback` 回调函数格式：
+
+```JavaScript
+function callback (err, list) {
+  // 如果出错，err为出错信息
+  // each系列函数没有list参数
+  // read系列函数list为完整文件名的列表
+}
+```
+
+`pattern` 参数格式：
+
++ 正则表达式
++ 函数
+
+```JavaScript
+function pattern (filename) {
+  // filename 是当前文件的完整路径
+  // 返回 true 表示该文件名符合条件
+}
+```
+
+
+## 简单示例
 
 ```javascript
 var rd = require('rd');
@@ -43,7 +100,7 @@ License
 =======
 
 ```
-Copyright (c) 2013 Zongmin Lei(雷宗民) <leizongmin@gmail.com>
+Copyright (c) 2013-2014 Zongmin Lei (雷宗民) <leizongmin@gmail.com>
 http://ucdok.com
 
 The MIT License
