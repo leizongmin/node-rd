@@ -355,4 +355,66 @@ describe('the rd moudle', function () {
     });
   });
 
+  it('#eachFilePattern', function (done) {
+    var pattern = /a\.txt$/;
+    var structs = new TestStructs(STRUCTS_FILE.filter(function (f) {
+      return pattern.test('/' + f);
+    }));
+    me.eachFilePattern(DIR, pattern, function (f, s, next) {
+      structs.test(f);
+      next();
+    }, function (err) {
+      should.equal(err, null);
+      structs.end();
+      done();
+    });
+  });
+
+  it('#eachFilePattern - thread_num', function (done) {
+    var pattern = /a\.txt$/;
+    var structs = new TestStructs(STRUCTS_FILE.filter(function (f) {
+      return pattern.test('/' + f);
+    }));
+    me.eachFilePattern(DIR, pattern, 1, function (f, s, next) {
+      structs.test(f);
+      next();
+    }, function (err) {
+      should.equal(err, null);
+      structs.end();
+      done();
+    });
+  });
+
+  it('#eachDirPattern', function (done) {
+    var pattern = /aaa$/;
+    var structs = new TestStructs(STRUCTS_DIR.filter(function (f) {
+      return pattern.test('/' + f);
+    }));
+    me.eachDirPattern(DIR, pattern, function (f, s, next) {
+      structs.test(f);
+      next();
+    }, function (err) {
+      should.equal(err, null);
+      structs.end();
+      done();
+    });
+  });
+
+  it('#eachDirPattern - thread_num', function (done) {
+    var pattern = function (f) {
+      return (f.substr(-3) === 'aaa');
+    }
+    var structs = new TestStructs(STRUCTS_DIR.filter(function (f) {
+      return pattern('/' + f);
+    }));
+    me.eachDirPattern(DIR, pattern, 1, function (f, s, next) {
+      structs.test(f);
+      next();
+    }, function (err) {
+      should.equal(err, null);
+      structs.end();
+      done();
+    });
+  });
+
 });
