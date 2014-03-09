@@ -589,4 +589,60 @@ describe('the rd moudle', function () {
     });
   });
 
+  // ---------------------------------------------------------------------------
+
+  it('#eachPatternSync - 1', function (done) {
+    var pattern = /(eaaaa|abaa.txt)$/;
+    var structs = new TestStructs(STRUCTS_ALL.filter(function (f) {
+      return pattern.test('/' + f);
+    }));
+    me.eachPatternSync(DIR, pattern, function (f, s) {
+      structs.test(f);
+    });
+    structs.end();
+    done();
+  });
+
+  it('#eachPatternSync - 2', function (done) {
+    var pattern = function (f) {
+      return /(eaaaa|abaa.txt)$/.test(f);
+    }
+    var structs = new TestStructs(STRUCTS_ALL.filter(function (f) {
+      return pattern('/' + f);
+    }));
+    me.eachPatternSync(DIR, pattern, function (f, s) {
+      structs.test(f);
+    });
+    structs.end();
+    done();
+  });
+
+  it('#readPatternSync - 1', function (done) {
+    var pattern = /(eaaaa|abaa.txt)$/;
+    var structs = new TestStructs(STRUCTS_ALL.filter(function (f) {
+      return pattern.test('/' + f);
+    }));
+    var files = me.readPatternSync(DIR, pattern);
+    files.forEach(function (f) {
+      structs.test(f);
+    });
+    structs.end();
+    done();
+  });
+
+  it('#readPatternSync - 2', function (done) {
+    var pattern = function (f) {
+      return /(eaaaa|abaa.txt)$/.test(f);
+    }
+    var structs = new TestStructs(STRUCTS_ALL.filter(function (f) {
+      return pattern('/' + f);
+    }));
+    var files = me.readPatternSync(DIR, pattern);
+    files.forEach(function (f) {
+      structs.test(f);
+    });
+    structs.end();
+    done();
+  });
+
 });
