@@ -229,5 +229,80 @@ describe('the rd moudle', function () {
 
   // ---------------------------------------------------------------------------
 
+  it('#readFileSync', function (done) {
+    var structs = new TestStructs(STRUCTS_FILE);
+    var files = me.readFileSync(DIR);
+    files.forEach(function (f) {
+      structs.test(f);
+    });
+    structs.end();
+    done();
+  });
+
+  it('#readFilePatternSync - 1', function (done) {
+    var pattern = /a\.txt$/;
+    var structs = new TestStructs(STRUCTS_FILE.filter(function (f) {
+      return pattern.test('/' + f);
+    }));
+    var files = me.readFilePatternSync(DIR, pattern);
+    files.forEach(function (f) {
+      structs.test(f);
+    });
+    structs.end();
+    done();
+  });
+
+  it('#readFilePatternSync - 2', function (done) {
+    var pattern = function (f) {
+      return (f.substr(-4) === '.txt');
+    }
+    var structs = new TestStructs(STRUCTS_FILE.filter(function (f) {
+      return pattern('/' + f);
+    }));
+    var files = me.readFilePatternSync(DIR, pattern);
+    files.forEach(function (f) {
+      structs.test(f);
+    });
+    structs.end();
+    done();
+  });
+
+  it('#readDirSync', function (done) {
+    var structs = new TestStructs(STRUCTS_DIR);
+    var files = me.readDirSync(DIR);
+    files.forEach(function (f) {
+      structs.test(f);
+    });
+    structs.end();
+    done();
+  });
+
+  it('#readDirPatternSync - 1', function (done) {
+    var pattern = /aaa$/;
+    var structs = new TestStructs(STRUCTS_DIR.filter(function (f) {
+      return pattern.test('/' + f);
+    }));
+    var files = me.readDirPatternSync(DIR, pattern);
+    files.forEach(function (f) {
+      structs.test(f);
+    });
+    structs.end();
+    done();
+  });
+
+  it('#readFilePatternSync - 2', function (done) {
+    var pattern = function (f) {
+      return (f.substr(-3) === 'aaa');
+    }
+    var structs = new TestStructs(STRUCTS_DIR.filter(function (f) {
+      return pattern('/' + f);
+    }));
+    var files = me.readDirPatternSync(DIR, pattern);
+    files.forEach(function (f) {
+      structs.test(f);
+    });
+    structs.end();
+    done();
+  });
 
 });
