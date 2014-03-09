@@ -305,4 +305,54 @@ describe('the rd moudle', function () {
     done();
   });
 
+  // ---------------------------------------------------------------------------
+
+  it('#eachFile', function (done) {
+    var structs = new TestStructs(STRUCTS_FILE);
+    me.eachFile(DIR, function (f, s, next) {
+      structs.test(f);
+      next();
+    }, function (err) {
+      should.equal(err, null);
+      structs.end();
+      done();
+    });
+  });
+
+  it('#eachFile - thread_num', function (done) {
+    var structs = new TestStructs(STRUCTS_FILE);
+    me.eachFile(DIR, 1, function (f, s, next) {
+      structs.test(f);
+      next();
+    }, function (err) {
+      should.equal(err, null);
+      structs.end();
+      done();
+    });
+  });
+
+  it('#eachDir', function (done) {
+    var structs = new TestStructs(STRUCTS_DIR);
+    me.eachDir(DIR, function (f, s, next) {
+      structs.test(f);
+      next();
+    }, function (err) {
+      should.equal(err, null);
+      structs.end();
+      done();
+    });
+  });
+
+  it('#eachDir - thread_num', function (done) {
+    var structs = new TestStructs(STRUCTS_DIR);
+    me.eachDir(DIR, 1, function (f, s, next) {
+      structs.test(f);
+      next();
+    }, function (err) {
+      should.equal(err, null);
+      structs.end();
+      done();
+    });
+  });
+
 });
