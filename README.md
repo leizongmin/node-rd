@@ -15,19 +15,24 @@ node-rd
 
 可用的API（详细用法可参考 `test/test.js` ）：
 
-+ `read(dir, callback)`
-+ `readFile(dir, callback)`
-+ `readFilePattern(dir, pattern, callback)`
-+ `readDir(dir, callback)`
-+ `readDirPattern(dir, pattern, callback)`
-+ `each(dir, findOne, callback)`
-+ `eachFile(dir, findOne, callback)`
-+ `eachFilePattern(dir, pattern, findOne, callback)`
-+ `eachDir(dir, findOne, callback)`
-+ `eachDirPattern(dir, pattern, findOne, callback)`
++ `read(dir, [threads], callback)`
++ `readPattern(dir, pattern, [threads], callback)`
++ `readFile(dir, [threads], callback)`
++ `readFilePattern(dir, pattern, [threads], callback)`
++ `readDir(dir, [threads], callback)`
++ `readDirPattern(dir, pattern, [threads], callback)`
++ `each(dir, findOne, [threads], callback)`
++ `eachPattern(dir, pattern, [threads], findOne, callback)`
++ `eachFile(dir, [threads], findOne, callback)`
++ `eachFilePattern(dir, pattern, [threads], findOne, callback)`
++ `eachDir(dir, [threads], findOne, callback)`
++ `eachDirPattern(dir, pattern, [threads], findOne, callback)`
 
-以上所有函数均提供同步版本，如 `readSync`, `eachSync`；相应的 `callback` 改为
-直接 `return` 返回值。
+说明：
+
++ 以上所有函数均提供同步版本，如 `read` 对应的同步版本为 `readSync`；
+相应的 `callback` 改为直接 `return` 返回值；
++ `threads` 参数表示并发数量，为可选参数，默认为1；同步版本没有此参数；
 
 `findOne` 回调函数格式：
 
