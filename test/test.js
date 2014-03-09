@@ -417,4 +417,52 @@ describe('the rd moudle', function () {
     });
   });
 
+  it('#readFile', function (done) {
+    var structs = new TestStructs(STRUCTS_FILE);
+    me.readFile(DIR, function (err, files) {
+      should.equal(err, null);
+      files.forEach(function (f) {
+        structs.test(f);
+      });
+      structs.end();
+      done();
+    });
+  });
+
+  it('#readFile - thread_num', function (done) {
+    var structs = new TestStructs(STRUCTS_FILE);
+    me.readFile(DIR, 1, function (err, files) {
+      should.equal(err, null);
+      files.forEach(function (f) {
+        structs.test(f);
+      });
+      structs.end();
+      done();
+    });
+  });
+
+  it('#readDir', function (done) {
+    var structs = new TestStructs(STRUCTS_DIR);
+    me.readDir(DIR, function (err, files) {
+      should.equal(err, null);
+      files.forEach(function (f) {
+        structs.test(f);
+      });
+      structs.end();
+      done();
+    });
+  });
+
+  it('#readDir - thread_num', function (done) {
+    var structs = new TestStructs(STRUCTS_DIR);
+    me.readDir(DIR, 1, function (err, files) {
+      should.equal(err, null);
+      files.forEach(function (f) {
+        structs.test(f);
+      });
+      structs.end();
+      done();
+    });
+  });
+
 });
