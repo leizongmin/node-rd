@@ -106,6 +106,11 @@ rd.eachSync('/tmp', function (f, s) {
   // 参数s是通过 fs.stat() 获取到的文件属性值
   console.log('file: %s', f);
 });
+
+// 同步遍历目录下的所有js文件
+rd.eachFileFilterSync('/path', /\.js$/, function (f, s) {
+  console.log(f);
+});
 ```
 
 
