@@ -64,7 +64,7 @@ $ npm install rd --save
 `findOne` 回调函数格式：
 
 ```javascript
-function findOne (filename, stats) {
+function findOne(filename, stats) {
   // filename 是当前文件的完整路径
   // stats 是使用 fs.Stats 对象
 }
@@ -73,7 +73,7 @@ function findOne (filename, stats) {
 `callback` 回调函数格式：
 
 ```javascript
-function callback (err, list) {
+function callback(err, list) {
   // 如果出错，err为出错信息
   // each系列函数没有list参数
   // read系列函数list为完整文件名的列表
@@ -86,7 +86,7 @@ function callback (err, list) {
 + 函数
 
 ```javascript
-function pattern (filename) {
+function pattern(filename) {
   // filename 是当前文件的完整路径
   // 返回 true 表示该文件名符合条件
 }
