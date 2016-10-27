@@ -6,7 +6,7 @@ var me = require('../');
 var DIR = '/';
 
 
-function sync (callback) {
+function sync(callback) {
   console.time('sync');
   var count = 0;
   me.eachSync(DIR, function (f, s) {
@@ -17,7 +17,7 @@ function sync (callback) {
   callback && callback();
 }
 
-function async (callback) {
+function async(callback) {
   console.time('async');
   var count = 0;
   me.each(DIR, function (f, s, next) {
@@ -32,5 +32,5 @@ function async (callback) {
 }
 
 
-//async(sync);
+// async(sync);
 sync(async);

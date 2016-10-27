@@ -1,4 +1,4 @@
-Copyright (c) 2013 Lei Zongmin(雷宗民) <leizongmin@gmail.com>
+Copyright (c) 2013-2016 Lei Zongmin(雷宗民) <leizongmin@gmail.com>
 http://ucdok.com
 
 The MIT License

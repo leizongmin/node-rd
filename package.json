@@ -1,21 +1,37 @@
 {
-  "name":           "rd",
-  "main":           "./lib/index.js",
-  "version":        "0.0.2",
-  "description":    "Read all directory recursively 列出（遍历）目录下的所有文件，包括子目录",
-  "author":         "leizongmin <leizongmin@gmail.com> (http://ucdok.com)",
+  "name": "rd",
+  "version": "1.0.0",
+  "description": "Read all directory recursively 列出（遍历）目录下的所有文件，包括子目录",
+  "main": "index.js",
+  "files": [
+    "index.js"
+  ],
+  "scripts": {
+    "test": "npm run lint && mocha -t 5000",
+    "test-cov": "istanbul cover _mocha --report lcovonly -- -t 5000 -R spec && cat ./coverage/lcov.info | coveralls",
+    "lint": "eslint . --fix",
+    "prepublish": "npm run lint"
+  },
   "repository": {
     "type": "git",
-    "url":  "git://github.com/leizongmin/node-rd.git"
+    "url": "git+https://github.com/leizongmin/node-rd.git"
   },
-  "engines": {
-    "node":         ">= 0.6.0"
+  "keywords": [
+    "directory",
+    "recursively"
+  ],
+  "author": "Zongmin Lei <leizongmin@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/leizongmin/node-rd/issues"
   },
+  "homepage": "https://github.com/leizongmin/node-rd#readme",
   "devDependencies": {
-    "mocha":        ">= 1.2",
-    "should":       "~1.2.2"
-  },
-  "scripts": {
-    "test":         "mocha -t 5000"
+    "mocha": "^3.1.2",
+    "coveralls": "^2.11.14",
+    "eslint": "^3.8.1",
+    "eslint-config-lei": "0.0.14",
+    "eslint-plugin-promise": "^3.3.0",
+    "istanbul": "^0.4.5"
   }
 }

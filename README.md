@@ -1,7 +1,26 @@
-[![Build Status](https://secure.travis-ci.org/leizongmin/node-rd.png?branch=master)](http://travis-ci.org/leizongmin/node-rd)
+[![NPM version][npm-image]][npm-url]
+[![build status][travis-image]][travis-url]
+[![Test coverage][coveralls-image]][coveralls-url]
+[![David deps][david-image]][david-url]
+[![node version][node-image]][node-url]
+[![npm download][download-image]][download-url]
+[![npm license][license-image]][download-url]
 
-node-rd
-=======
+[npm-image]: https://img.shields.io/npm/v/rd.svg?style=flat-square
+[npm-url]: https://npmjs.org/package/rd
+[travis-image]: https://img.shields.io/travis/leizongmin/node-rd.svg?style=flat-square
+[travis-url]: https://travis-ci.org/leizongmin/node-rd
+[coveralls-image]: https://img.shields.io/coveralls/leizongmin/node-rd.svg?style=flat-square
+[coveralls-url]: https://coveralls.io/r/leizongmin/node-rd?branch=master
+[david-image]: https://img.shields.io/david/leizongmin/node-rd.svg?style=flat-square
+[david-url]: https://david-dm.org/leizongmin/node-rd
+[node-image]: https://img.shields.io/badge/node.js-%3E=_0.6-green.svg?style=flat-square
+[node-url]: http://nodejs.org/download/
+[download-image]: https://img.shields.io/npm/dm/rd.svg?style=flat-square
+[download-url]: https://npmjs.org/package/rd
+[license-image]: https://img.shields.io/npm/l/rd.svg
+
+# node-rd
 
 列出（遍历）目录下的所有文件，包括子目录
 
@@ -9,7 +28,7 @@ node-rd
 ## 安装
 
 ```bash
-$ npm install rd
+$ npm install rd --save
 ```
 
 
@@ -44,7 +63,7 @@ $ npm install rd
 
 `findOne` 回调函数格式：
 
-```JavaScript
+```javascript
 function findOne (filename, stats) {
   // filename 是当前文件的完整路径
   // stats 是使用 fs.Stats 对象
@@ -53,7 +72,7 @@ function findOne (filename, stats) {
 
 `callback` 回调函数格式：
 
-```JavaScript
+```javascript
 function callback (err, list) {
   // 如果出错，err为出错信息
   // each系列函数没有list参数
@@ -66,7 +85,7 @@ function callback (err, list) {
 + 正则表达式
 + 函数
 
-```JavaScript
+```javascript
 function pattern (filename) {
   // filename 是当前文件的完整路径
   // 返回 true 表示该文件名符合条件
@@ -114,11 +133,10 @@ rd.eachFileFilterSync('/path', /\.js$/, function (f, s) {
 ```
 
 
-License
-=======
+## License
 
 ```
-Copyright (c) 2013-2014 Zongmin Lei (雷宗民) <leizongmin@gmail.com>
+Copyright (c) 2013-2016 Zongmin Lei (雷宗民) <leizongmin@gmail.com>
 http://ucdok.com
 
 The MIT License

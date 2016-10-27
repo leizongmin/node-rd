@@ -1,3 +1,5 @@
+'use strict';
+
 /**
  * 列出目录下的所有文件
  *
@@ -20,7 +22,7 @@ var THREAD_NUM = os.cpus().length;
  * @param {Array} files
  * @return {Array}
  */
-function fullPath (dir, files) {
+function fullPath(dir, files) {
   return files.map(function (f) {
     return path.join(dir, f);
   });
@@ -35,7 +37,7 @@ function fullPath (dir, files) {
  *                            格式：function (filename, stats, next)
  * @param {Function} callback 格式：function (err)
  */
-function eachFile (dir, thread_num, findOne, callback) {
+function eachFile(dir, thread_num, findOne, callback) {
   fs.stat(dir, function (err, stats) {
     if (err) return callback(err);
 
@@ -51,7 +53,7 @@ function eachFile (dir, thread_num, findOne, callback) {
         fs.readdir(dir, function (err, files) {
           if (err) return callback(err);
 
-          files =fullPath(dir, files);
+          files = fullPath(dir, files);
 
           // 启动多个并发线程
           var finish = 0;
@@ -78,7 +80,7 @@ function eachFile (dir, thread_num, findOne, callback) {
       }
     });
   });
-};
+}
 
 /**
  * 遍历目录里面的所有文件和目录 (同步)
@@ -87,7 +89,7 @@ function eachFile (dir, thread_num, findOne, callback) {
  * @param {Function} findOne  找到一个文件时的回调
  *                            格式：function (filename, stats, next)
  */
-function eachFileSync (dir, findOne) {
+function eachFileSync(dir, findOne) {
   var stats = fs.statSync(dir);
   findOne(dir, stats);
 
@@ -208,7 +210,7 @@ exports.readSync = function (dir) {
  * @param {Array} args
  * @return {Mixed}
  */
-function getEachArguments (args) {
+function getEachArguments(args) {
   return Array.prototype.slice.call(args, 0, -2);
 }
 
@@ -218,7 +220,7 @@ function getEachArguments (args) {
  * @param {Array} args
  * @return {Mixed}
  */
-function getReadArguments (args) {
+function getReadArguments(args) {
   return Array.prototype.slice.call(args, 0, -1);
 }
 
@@ -228,7 +230,7 @@ function getReadArguments (args) {
  * @param {Array} args
  * @return {Mixed}
  */
-function getCallback (args) {
+function getCallback(args) {
   return args[args.length - 1];
 }
 
@@ -238,7 +240,7 @@ function getCallback (args) {
  * @param {Array} args
  * @return {Mixed}
  */
-function getFindOne (args) {
+function getFindOne(args) {
   return args[args.length - 2];
 }
 
@@ -248,7 +250,7 @@ function getFindOne (args) {
  * @param {Array} args
  * @return {Mixed}
  */
-function getPattern (args) {
+function getPattern(args) {
   return args[1];
 }
 
@@ -258,7 +260,7 @@ function getPattern (args) {
  * @param {Array} args
  * @return {Array}
  */
-function stripPattern (args) {
+function stripPattern(args) {
   args.splice(1, 1);
   return args;
 }
@@ -657,13 +659,13 @@ exports.readDirFilterSync = function (dir, pattern) {
  * @param {RegExp|Function} pattern
  * @return {Function}
  */
-function patternToFunction (pattern) {
+function patternToFunction(pattern) {
   if (typeof pattern === 'function') {
     return pattern;
   } else if (pattern instanceof RegExp) {
     return function (s) {
       return pattern.test(s);
-    }
+    };
   } else {
     return function () {
       return false;
