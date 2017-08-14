@@ -666,9 +666,9 @@ function patternToFunction(pattern) {
     return function (s) {
       return pattern.test(s);
     };
-  } else {
-    return function () {
-      return false;
-    };
   }
+  return function () {
+    return false;
+  };
+  
 }
