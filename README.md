@@ -22,7 +22,7 @@
 
 # node-rd
 
-列出（遍历）目录下的所有文件，包括子目录
+列出（遍历）目录下的所有文件，包括子目录（支持 TypeScript）
 
 
 ## 安装
@@ -136,7 +136,7 @@ rd.eachFileFilterSync('/path', /\.js$/, function (f, s) {
 ## License
 
 ```
-Copyright (c) 2013-2016 Zongmin Lei (雷宗民) <leizongmin@gmail.com>
+Copyright (c) 2013-2017 Zongmin Lei <leizongmin@gmail.com>
 http://ucdok.com
 
 The MIT License

@@ -1,10 +1,12 @@
 {
   "name": "rd",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Read all directory recursively 列出（遍历）目录下的所有文件，包括子目录",
   "main": "index.js",
+  "typings": "index.d.ts",
   "files": [
-    "index.js"
+    "index.js",
+    "index.d.ts"
   ],
   "scripts": {
     "test": "npm run lint && mocha -t 5000",
@@ -33,5 +35,8 @@
     "eslint-config-lei": "0.0.14",
     "eslint-plugin-promise": "^3.3.0",
     "istanbul": "^0.4.5"
+  },
+  "dependencies": {
+    "@types/node": "^8.0.20"
   }
 }
