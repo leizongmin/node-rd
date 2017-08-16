@@ -38,11 +38,11 @@ export function eachSync(dir: string, thread_num: number, findOne: FindOneCallba
 /**
  * 遍历目录下的所有文件
  */
-export function eachFile(dir: string, findOne: FindOneCallback, callback: Callback1);
+export function eachFile(dir: string, findOne: FindOneCallback, callback: Callback1): void;
 /**
  * 遍历目录下的所有文件
  */
-export function eachFile(dir: string, thread_num: number, findOne: FindOneCallback, callback: Callback1);
+export function eachFile(dir: string, thread_num: number, findOne: FindOneCallback, callback: Callback1): void;
 
 /**
  * 遍历目录下的所有文件
@@ -56,11 +56,11 @@ export function eachFileSync(dir: string, thread_num: number, findOne: FindOneCa
 /**
  * 遍历目录下的所有目录
  */
-export function eachDir(dir: string, findOne: FindOneCallback, callback: Callback1);
+export function eachDir(dir: string, findOne: FindOneCallback, callback: Callback1): void;
 /**
  * 遍历目录下的所有目录
  */
-export function eachDir(dir: string, thread_num: number, findOne: FindOneCallback, callback: Callback1);
+export function eachDir(dir: string, thread_num: number, findOne: FindOneCallback, callback: Callback1): void;
 
 /**
  * 遍历目录下的所有目录
@@ -74,57 +74,57 @@ export function eachDirSync(dir: string, thread_num: number, findOne: FindOneCal
 /**
  * 仅列出目录下指定规则的所有文件和目录
  */
-export function eachFilter(dir: string, pattern: FindFilter, callback: Callback1);
+export function eachFilter(dir: string, pattern: FindFilter, callback: Callback1): void;
 /**
  * 仅列出目录下指定规则的所有文件和目录
  */
-export function eachFilter(dir: string, pattern: FindFilter, thread_num: number, callback: Callback1);
+export function eachFilter(dir: string, pattern: FindFilter, thread_num: number, callback: Callback1): void;
 
 /**
  * 仅列出目录下指定规则的所有文件和目录
  */
-export function eachFilterSync(dir: string, pattern: FindFilter);
+export function eachFilterSync(dir: string, pattern: FindFilter): void;
 /**
  * 仅列出目录下指定规则的所有文件和目录
  */
-export function eachFilterSync(dir: string, pattern: FindFilter, thread_num: number);
+export function eachFilterSync(dir: string, pattern: FindFilter, thread_num: number): void;
 
 /**
  * 仅列出目录下指定规则的所有文件
  */
-export function eachFileFilter(dir: string, pattern: FindFilter, callback: Callback1);
+export function eachFileFilter(dir: string, pattern: FindFilter, callback: Callback1): void;
 /**
  * 仅列出目录下指定规则的所有文件
  */
-export function eachFileFilter(dir: string, pattern: FindFilter, thread_num: number, callback: Callback1);
+export function eachFileFilter(dir: string, pattern: FindFilter, thread_num: number, callback: Callback1): void;
 
 /**
  * 仅列出目录下指定规则的所有文件
  */
-export function eachFileFilterSync(dir: string, pattern: FindFilter);
+export function eachFileFilterSync(dir: string, pattern: FindFilter): void;
 /**
  * 仅列出目录下指定规则的所有文件
  */
-export function eachFileFilterSync(dir: string, pattern: FindFilter, thread_num: number);
+export function eachFileFilterSync(dir: string, pattern: FindFilter, thread_num: number): void;
 
 
 /**
  * 仅列出目录下指定规则的所有目录
  */
-export function eachDirFilter(dir: string, pattern: FindFilter, callback: Callback1);
+export function eachDirFilter(dir: string, pattern: FindFilter, callback: Callback1): void;
 /**
  * 仅列出目录下指定规则的所有目录
  */
-export function eachDirFilter(dir: string, pattern: FindFilter, thread_num: number, callback: Callback1);
+export function eachDirFilter(dir: string, pattern: FindFilter, thread_num: number, callback: Callback1): void;
 
 /**
  * 仅列出目录下指定规则的所有目录
  */
-export function eachDirFilterSync(dir: string, pattern: FindFilter);
+export function eachDirFilterSync(dir: string, pattern: FindFilter): void;
 /**
  * 仅列出目录下指定规则的所有目录
  */
-export function eachDirFilterSync(dir: string, pattern: FindFilter, thread_num: number);
+export function eachDirFilterSync(dir: string, pattern: FindFilter, thread_num: number): void;
 
 
 /**
