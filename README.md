@@ -22,6 +22,8 @@
 
 # node-rd
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/leizongmin/node-rd.svg)](https://greenkeeper.io/)
+
 列出（遍历）目录下的所有文件，包括子目录（支持 TypeScript）
 
 
