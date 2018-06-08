@@ -5,6 +5,7 @@
 var path = require("path");
 var assert = require("assert");
 var rd = require("../");
+var rdPromises = require("../promises");
 
 describe("the rd moudle", function() {
   var DIR = path.resolve(__dirname, "files");
@@ -126,6 +127,20 @@ describe("the rd moudle", function() {
     done();
   });
 
+  it("#each Promise", function(done) {
+    var structs = new TestStructs(STRUCTS_ALL);
+    rdPromises
+      .each(DIR, function(f, s, next) {
+        structs.test(f);
+        next();
+      })
+      .then(function() {
+        structs.end();
+        done();
+      })
+      .catch(done);
+  });
+
   it("#read", function(done) {
     var structs = new TestStructs(STRUCTS_ALL);
     rd.read(DIR, function(err, files) {
@@ -158,6 +173,20 @@ describe("the rd moudle", function() {
     });
     structs.end();
     done();
+  });
+
+  it("#read Promise", function(done) {
+    var structs = new TestStructs(STRUCTS_ALL);
+    rdPromises
+      .read(DIR)
+      .then(function(files) {
+        files.forEach(function(f) {
+          structs.test(f);
+        });
+        structs.end();
+        done();
+      })
+      .catch(done);
   });
 
   // ---------------------------------------------------------------------------
