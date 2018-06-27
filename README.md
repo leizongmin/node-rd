@@ -20,17 +20,15 @@
 [download-url]: https://npmjs.org/package/rd
 [license-image]: https://img.shields.io/npm/l/rd.svg
 
-# node-rd
+# rd
 
 列出（遍历）目录下的所有文件，包括子目录（支持 TypeScript）
-
 
 ## 安装
 
 ```bash
-$ npm install rd --save
+npm install rd --save
 ```
-
 
 ## API列表
 
@@ -57,8 +55,7 @@ $ npm install rd --save
 
 说明：
 
-+ 以上所有函数均提供同步版本，如 `read` 对应的同步版本为 `readSync`；
-相应的 `callback` 改为直接 `return` 返回值；
++ 以上所有函数均提供同步版本，如 `read` 对应的同步版本为 `readSync`；相应的 `callback` 改为直接 `return` 返回值；
 + `threads` 参数表示并发数量，为可选参数，默认为1；同步版本没有此参数；
 
 `findOne` 回调函数格式：
@@ -91,7 +88,6 @@ function pattern(filename) {
   // 返回 true 表示该文件名符合条件
 }
 ```
-
 
 ## 简单示例
 
@@ -132,11 +128,10 @@ rd.eachFileFilterSync('/path', /\.js$/, function (f, s) {
 });
 ```
 
-
 ## License
 
-```
-Copyright (c) 2013-2017 Zongmin Lei <leizongmin@gmail.com>
+```text
+Copyright (c) 2013-2018 Zongmin Lei <leizongmin@gmail.com>
 http://ucdok.com
 
 The MIT License
