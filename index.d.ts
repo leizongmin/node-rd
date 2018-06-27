@@ -19,6 +19,12 @@ export type FindOneCallback = (
   next: (err?: Error | null) => void
 ) => void;
 
+export type FindOneSyncCallback = (
+  filename: string,
+  stats: fs.Stats,
+  next: (err?: Error | null) => void
+) => void;
+
 export type FindFilter = RegExp | ((filename: string) => boolean);
 
 /**
@@ -42,14 +48,14 @@ export function each(
 /**
  * 遍历目录下的所有文件和目录
  */
-export function eachSync(dir: string, findOne: FindOneCallback): void;
+export function eachSync(dir: string, findOne: FindOneSyncCallback): void;
 /**
  * 遍历目录下的所有文件和目录
  */
 export function eachSync(
   dir: string,
   thread_num: number,
-  findOne: FindOneCallback
+  findOne: FindOneSyncCallback
 ): void;
 
 /**
@@ -73,14 +79,14 @@ export function eachFile(
 /**
  * 遍历目录下的所有文件
  */
-export function eachFileSync(dir: string, findOne: FindOneCallback): void;
+export function eachFileSync(dir: string, findOne: FindOneSyncCallback): void;
 /**
  * 遍历目录下的所有文件
  */
 export function eachFileSync(
   dir: string,
   thread_num: number,
-  findOne: FindOneCallback
+  findOne: FindOneSyncCallback
 ): void;
 
 /**
@@ -104,14 +110,14 @@ export function eachDir(
 /**
  * 遍历目录下的所有目录
  */
-export function eachDirSync(dir: string, findOne: FindOneCallback): void;
+export function eachDirSync(dir: string, findOne: FindOneSyncCallback): void;
 /**
  * 遍历目录下的所有目录
  */
 export function eachDirSync(
   dir: string,
   thread_num: number,
-  findOne: FindOneCallback
+  findOne: FindOneSyncCallback
 ): void;
 
 /**
@@ -120,6 +126,7 @@ export function eachDirSync(
 export function eachFilter(
   dir: string,
   pattern: FindFilter,
+  findOne: FindOneCallback,
   callback: Callback1
 ): void;
 /**
@@ -129,19 +136,21 @@ export function eachFilter(
   dir: string,
   pattern: FindFilter,
   thread_num: number,
+  findOne: FindOneCallback,
   callback: Callback1
 ): void;
 
 /**
  * 仅列出目录下指定规则的所有文件和目录
  */
-export function eachFilterSync(dir: string, pattern: FindFilter): void;
+export function eachFilterSync(dir: string, pattern: FindFilter, findOne: FindOneSyncCallback): void;
 /**
  * 仅列出目录下指定规则的所有文件和目录
  */
 export function eachFilterSync(
   dir: string,
   pattern: FindFilter,
+  findOne: FindOneSyncCallback,
   thread_num: number
 ): void;
 
@@ -151,6 +160,7 @@ export function eachFilterSync(
 export function eachFileFilter(
   dir: string,
   pattern: FindFilter,
+  findOne: FindOneCallback,
   callback: Callback1
 ): void;
 /**
@@ -160,20 +170,22 @@ export function eachFileFilter(
   dir: string,
   pattern: FindFilter,
   thread_num: number,
+  findOne: FindOneCallback,
   callback: Callback1
 ): void;
 
 /**
  * 仅列出目录下指定规则的所有文件
  */
-export function eachFileFilterSync(dir: string, pattern: FindFilter): void;
+export function eachFileFilterSync(dir: string, pattern: FindFilter, findOne: FindOneSyncCallback): void;
 /**
  * 仅列出目录下指定规则的所有文件
  */
 export function eachFileFilterSync(
   dir: string,
   pattern: FindFilter,
-  thread_num: number
+  thread_num: number,
+  findOne: FindOneSyncCallback
 ): void;
 
 /**
@@ -182,6 +194,7 @@ export function eachFileFilterSync(
 export function eachDirFilter(
   dir: string,
   pattern: FindFilter,
+  findOne: FindOneCallback,
   callback: Callback1
 ): void;
 /**
@@ -191,20 +204,22 @@ export function eachDirFilter(
   dir: string,
   pattern: FindFilter,
   thread_num: number,
+  findOne: FindOneCallback,
   callback: Callback1
 ): void;
 
 /**
  * 仅列出目录下指定规则的所有目录
  */
-export function eachDirFilterSync(dir: string, pattern: FindFilter): void;
+export function eachDirFilterSync(dir: string, pattern: FindFilter, findOne: FindOneSyncCallback): void;
 /**
  * 仅列出目录下指定规则的所有目录
  */
 export function eachDirFilterSync(
   dir: string,
   pattern: FindFilter,
-  thread_num: number
+  thread_num: number,
+  findOne: FindOneSyncCallback
 ): void;
 
 /**
