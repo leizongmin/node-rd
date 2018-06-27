@@ -1,6 +1,6 @@
 {
   "name": "rd",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Read all directory recursively 列出（遍历）目录下的所有文件，包括子目录",
   "main": "index.js",
   "typings": "index.d.ts",
