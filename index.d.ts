@@ -19,11 +19,7 @@ export type FindOneCallback = (
   next: (err?: Error | null) => void
 ) => void;
 
-export type FindOneSyncCallback = (
-  filename: string,
-  stats: fs.Stats,
-  next: (err?: Error | null) => void
-) => void;
+export type FindOneSyncCallback = (filename: string, stats: fs.Stats) => void;
 
 export type FindFilter = RegExp | ((filename: string) => boolean);
 
@@ -143,7 +139,11 @@ export function eachFilter(
 /**
  * 仅列出目录下指定规则的所有文件和目录
  */
-export function eachFilterSync(dir: string, pattern: FindFilter, findOne: FindOneSyncCallback): void;
+export function eachFilterSync(
+  dir: string,
+  pattern: FindFilter,
+  findOne: FindOneSyncCallback
+): void;
 /**
  * 仅列出目录下指定规则的所有文件和目录
  */
@@ -177,7 +177,11 @@ export function eachFileFilter(
 /**
  * 仅列出目录下指定规则的所有文件
  */
-export function eachFileFilterSync(dir: string, pattern: FindFilter, findOne: FindOneSyncCallback): void;
+export function eachFileFilterSync(
+  dir: string,
+  pattern: FindFilter,
+  findOne: FindOneSyncCallback
+): void;
 /**
  * 仅列出目录下指定规则的所有文件
  */
@@ -211,7 +215,11 @@ export function eachDirFilter(
 /**
  * 仅列出目录下指定规则的所有目录
  */
-export function eachDirFilterSync(dir: string, pattern: FindFilter, findOne: FindOneSyncCallback): void;
+export function eachDirFilterSync(
+  dir: string,
+  pattern: FindFilter,
+  findOne: FindOneSyncCallback
+): void;
 /**
  * 仅列出目录下指定规则的所有目录
  */
