@@ -2,13 +2,14 @@
  * 测试使用同步方式和异步方式遍历整个目录需要多少时间
  */
 
-var me = require("../");
-var DIR = "/";
+const path = require("path");
+const rd = require("../");
+const DIR = path.resolve(__dirname, "..");
 
 function sync(callback) {
   console.time("sync");
-  var count = 0;
-  me.eachSync(DIR, function(f, s) {
+  let count = 0;
+  rd.eachSync(DIR, function(f, s) {
     count++;
   });
   console.timeEnd("sync");
@@ -18,8 +19,8 @@ function sync(callback) {
 
 function async(callback) {
   console.time("async");
-  var count = 0;
-  me.each(
+  let count = 0;
+  rd.each(
     DIR,
     function(f, s, next) {
       count++;
@@ -34,5 +35,4 @@ function async(callback) {
   );
 }
 
-// async(sync);
 sync(async);
